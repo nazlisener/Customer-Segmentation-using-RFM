@@ -1,6 +1,6 @@
 #Customer Segmentation using RFM
 
-#Veriyi Anlama ve Hazırlama
+#Veriyi anlama ve hazırlama
 import datetime as dt
 import pandas as pd
 pd.set_option('display.max_columns', None)
@@ -18,7 +18,7 @@ df.columns
 df.isnull().sum()
 df.dropna(inplace=True) #eksik değerlerin kalıcı olarak silinmesi
 
-#Eşsiz ürün sayısı
+#Eşsiz Ürün Sayısı
 df.nunique()
 
 #Hangi üründen kaçar adet olduğu
@@ -33,7 +33,7 @@ df = df[~df["Invoice"].str.contains("C", na=False)]
 #Her bir faturanın toplam tutarı
 df["TotalPrice"] = df["Quantity"] * df["Price"]
 
-#RFM Metriklerinin Hesaplanması
+#RFM metriklerinin hesaplanması
 
 #Recency: Müşterinin en son satın alma yaptığı tarihtir. (Bugün ile müşterinin en son satın alma tarihi arasındaki fark)
 #Frequency: Toplam satın alma sayısıdır (Müşterinin alışveriş sıklığı)
@@ -48,7 +48,7 @@ rfm.columns=["Recency","Frequency","Monetary"]
 rfm=rfm[(rfm["Monetary"]>0) & (rfm["Frequency"]>0)]
 rfm.head()
 
-#RFM Skorlarının Hesaplanması
+#RFM skorlarının hesaplanması
 
 #Recency (1 en yakın, 5 en uzak tarihi temsil eder)
 rfm["recency_score"] = pd.qcut(rfm['Recency'], 5, labels=[5, 4, 3, 2, 1])
