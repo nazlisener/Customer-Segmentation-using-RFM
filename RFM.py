@@ -1,6 +1,6 @@
 #Customer Segmentation using RFM
 
-#Veriyi anlama ve hazırlama
+#Import libraries and reading data
 import datetime as dt
 import pandas as pd
 pd.set_option('display.max_columns', None)
@@ -8,29 +8,29 @@ pd.set_option('display.max_rows', None)
 df = pd.read_excel("online_retail_II.xlsx", sheet_name="Year 2010-2011")
 df=df.copy()
 
-#Veri setinin betimsel istatistiklerinin incelenmesi
+#Data Preparation - look at some descriptive statistics
 df.describe().T
 df.head()
 df.shape
 df.columns
 
-#Eksik gözlem kontrolü
+#Checking of Missing Values
 df.isnull().sum()
 df.dropna(inplace=True) #eksik değerlerin kalıcı olarak silinmesi
 
-#Eşsiz Ürün Sayısı
+#Unique Items
 df.nunique()
 
-#Hangi üründen kaçar adet olduğu
+#Product Items
 df["Description"].value_counts()
 
-#En çok sipariş edilen 5 ürün (azalan şekilde sıralandı)
+#Rank the 5 most ordered products from most to least
 df.groupby("Description").agg({"Quantity": "sum"}).sort_values("Quantity",ascending=False).head()
 
-#Faturalarda iptal edilen işlemlerin veri setinden çıkartılması
+#Remove the canceled transactions from the dataset
 df = df[~df["Invoice"].str.contains("C", na=False)]
 
-#Her bir faturanın toplam tutarı
+#The total amount of each invoice
 df["TotalPrice"] = df["Quantity"] * df["Price"]
 
 #RFM metriklerinin hesaplanması
