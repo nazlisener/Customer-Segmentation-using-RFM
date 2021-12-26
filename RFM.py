@@ -37,9 +37,9 @@ df["TotalPrice"] = df["Quantity"] * df["Price"]
 
 #RFM metriklerinin hesaplanması
 
-#Recency: Müşterinin en son satın alma yaptığı tarihtir. (Bugün ile müşterinin en son satın alma tarihi arasındaki fark)
-#Frequency: Toplam satın alma sayısıdır (Müşterinin alışveriş sıklığı)
-#Monetary: Toplam kazancı verir. (Müşterinin bıraktığı parasal değerdir)
+#Recency: Date from customer's last purchase
+#Frequency:  Total number of purchases
+#Monetary: Total spend by the customer
 
 df["InvoiceDate"].max()
 today_date = dt.datetime(2011, 12, 11)
