@@ -4,7 +4,7 @@ RFM analysis is a technique used to categorize customers according to their purc
 
 # **How This Calculate?**
 
-**Recency: This is the date when the customer made the last purchase. It is calculated by subtracting the customer's last shopping date from the analysis date.
+**Recency:** This is the date when the customer made the last purchase. It is calculated by subtracting the customer's last shopping date from the analysis date.
 
 **Frequency: This is the total number of purchases of the customer. In a different way, it gives the frequency of purchases made by the customer.
 
