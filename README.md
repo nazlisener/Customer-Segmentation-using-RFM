@@ -1,27 +1,23 @@
-# Customer-Segmentation-using-RFM
-# İş Problemi
+**The Business Problem**
+An e-commerce company wants to segment its customers and determine marketing strategies according to these segments.
+For example, it is desirable to organize different campaigns to retain customers who are very profitable for the company, and different campaigns for new customers.
 
-Bir e-ticaret şirketi müşterilerini segmentlere ayırıp bu segmentlere göre pazarlama stratejileri belirlemek istemektedir.
+**Data Set**
+The Online Retail II data set includes the sales of an online retail store based in the UK between dec1/12/2009 and 09/12/2011. The product catalog of this company includes souvenirs. The vast majority of the company's customers are corporate customers.
 
-Örneğin şirket için çok kazançlı olan müşterileri elde tutmak için farklı kampanyalar, yeni müşteriler için farklı kampanyalar düzenlenmek istenmektedir.
+**Variables**
+**InvoiceNo:** Invoice number. A unique number for each transaction, i.e. invoice. If it starts with C, the canceled operation
 
-# Veri Seti Hikayesi
-Online Retail II isimli veri seti İngiltere merkezli online bir satış mağazasının 01/12/2009 - 09/12/2011 tarihleri arasındaki satışlarını içermektedir.
-Bu şirketin ürün kataloğunda hediyelik eşyalar yer almaktadır. Şirketin müşterilerinin büyük çoğunluğu kurumsal müşterilerdir.
+**StockCode:** Product code. A unique number for each product
 
-# Değişkenler
-InvoiceNo: Fatura numarası. Her işleme yani faturaya ait eşsiz numara. C ile başlıyorsa iptal edilen işlem
+**Description:** Product name
 
-StockCode: Ürün kodu. Her bir ürün için eşsiz numara
+**Quantity:** The MOQ of the product. It refers to how many of the products in the invoices have been sold
 
-Description: Ürün ismi
+**InvoiceDate:** Invoice date
 
-Quantity: Ürün adedi. Faturalardaki ürünlerden kaçar tane satıldığını ifade etmektedir
+**UnitPrice:** Product price (in pounds sterling)
 
-InvoiceDate: Fatura tarihi
+**CustomerID:** Unique customer number
 
-UnitPrice: Ürün fiyatı (Sterlin cinsinden)
-
-CustomerID: Eşsiz müşteri numarası
-
-Country: Müşterinin yaşadığı ülke ismi
+**Country:** The name of the country where the customer lives
