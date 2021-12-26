@@ -16,7 +16,9 @@ df.columns
 
 #Checking of Missing Values
 df.isnull().sum()
-df.dropna(inplace=True) #eksik değerlerin kalıcı olarak silinmesi
+
+#Remove the missing observations
+df.dropna(inplace=True) 
 
 #Unique Items
 df.nunique()
