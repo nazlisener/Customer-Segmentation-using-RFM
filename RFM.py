@@ -50,22 +50,20 @@ rfm.columns=["Recency","Frequency","Monetary"]
 rfm=rfm[(rfm["Monetary"]>0) & (rfm["Frequency"]>0)]
 rfm.head()
 
-#RFM skorlarının hesaplanması
+#Calculating of RFM Metrics
 
-#Recency (1 en yakın, 5 en uzak tarihi temsil eder)
+#Date from customer's last purchase.The nearest date gets 5 and the furthest date gets 1.
 rfm["recency_score"] = pd.qcut(rfm['Recency'], 5, labels=[5, 4, 3, 2, 1])
-#Frequency (1 en az satın alma sayısını, 5 en çok satın alma sayısını temsil eder)
+# Total number of purchases.The least frequency is 1 and the maximum frequency is 5.
 rfm["frequency_score"] = pd.qcut(rfm["Frequency"].rank(method="first"), 5, labels=[1, 2, 3, 4, 5])
-#Monetary (1 en az parasal değeri, 2 en fazla parasal değeri temsil eder)
+#Total spend by the customer. the least money gets 1, the most money gets 5.
 rfm["monetary_score"]= pd.qcut(rfm["Monetary"],5,labels=[1,2,3,4,5])
 
-#Oluşan 2 farklı değişkenin değerini tek bir değişken olarak ifade ediniz ve RFM_SCORE olarak kaydediniz.
-type("recency_score")
-type("frequency_score")
+#The value of 2 different variables that were formed was recorded as a RFM_SCORE
 rfm["RFM_SCORE"] = (rfm['recency_score'].astype(str) +
                         rfm['frequency_score'].astype(str))
 
-#RFM Skorlarının Segment Olarak Tanımlanması ve İsimlendirilmesi
+#Segmenting customers using RFM score
 seg_map = {
     r'[1-2][1-2]': 'hibernating',
     r'[1-2][3-4]': 'at_Risk',
@@ -81,15 +79,40 @@ seg_map = {
 rfm['segment'] = rfm['RFM_SCORE'].replace(seg_map, regex=True)
 rfm.head()
 
-#Segmentlere göre RFM metriklerinin ortalama ve sıklık değerlerini gruplama
+#Interpretation of descriptive statistics of segments
 rfm.groupby("segment")["segment", "Recency","Frequency","Monetary"].agg({"mean","count"}).head(20)
 
 rfm[rfm["segment"] == "cant_loose"]
 rfm[rfm["segment"] == "hibernating"]
 rfm[rfm["segment"] == "potential_loyalists"]
 
-#Seçilen bir segmentin excel çıktısının alınması
+#Getting excel output of a selected segment
 
 new_df = pd.DataFrame()
 new_df["new_customer_id"] = rfm[rfm["segment"] == "loyal_customers"].index
 new_df.to_excel("new_customers.xlsx")
+
+#Reviews About the Segments
+
+#Cant Loose
+
+#There are 63 people in this segment.
+#Shopping was done on average 133 days ago.
+#The frequency of shopping is 8, the total number of purchases is 63.
+#A total of £102,54 has been spent.
+
+#Action:
+#Even if the last purchase was made 133 days, the total number of purchases is high. 
+#It is a group of customers who do not come for a long time, but also make a lot of purchases when they come. 
+#We can analyze the process by sending surveys to these customers, and we can be changed by sharing personalized campaigns by e-mail.
+
+#Need Attention
+
+#There are 187 people in this segment.
+#Shopping was done on average 52 days ago.
+#The frequency of shopping is 2, the total number of purchases is 3.
+#A total of £12,602 has been spent.
+
+#Action:
+#These customers need to be reminded of the brand. 
+#So,short-term discounts can be made to remind these customers of our brand and allow them to shop again.
