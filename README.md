@@ -6,9 +6,9 @@ RFM analysis is a technique used to categorize customers according to their purc
 
 **Recency:** This is the date when the customer made the last purchase. It is calculated by subtracting the customer's last shopping date from the analysis date.
 
-**Frequency: This is the total number of purchases of the customer. In a different way, it gives the frequency of purchases made by the customer.
+**Frequency:** This is the total number of purchases of the customer. In a different way, it gives the frequency of purchases made by the customer.
 
-**Monetary: It is the total monetary value spent by the customer.
+**Monetary:** It is the total monetary value spent by the customer.
 
 # **The Business Problem**
 
@@ -21,18 +21,18 @@ The Online Retail II data set includes the sales of an online retail store based
 
 # **Variables**
 
-**InvoiceNo: Invoice number. A unique number for each transaction. If it starts with C which means cancelled operations.
+**InvoiceNo:** Invoice number. A unique number for each transaction. If it starts with C which means cancelled operations.
 
-**StockCode: Product code. A unique number for each product.
+**StockCode:** Product code. A unique number for each product.
 
-**Description: Product name.
+**Description:** Product name.
 
-**Quantity: It refers to how many of the products in the invoices have been sold.
+**Quantity:** It refers to how many of the products in the invoices have been sold.
 
-**InvoiceDate: Invoice date.
+**InvoiceDate:** Invoice date.
 
-**UnitPrice: Product price (pound)
+**UnitPrice:** Product price (pound)
 
-**CustomerID: Unique customer number.
+**CustomerID:** Unique customer number.
 
-**Country: The name of the country where the customer lives.
+**Country:** The name of the country where the customer lives.
