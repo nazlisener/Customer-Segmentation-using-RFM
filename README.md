@@ -1,4 +1,4 @@
-**What is RFM Analysis?
+**What is RFM Analysis?**
 
 RFM analysis is a technique used to categorize customers according to their purchasing behavior.
 
