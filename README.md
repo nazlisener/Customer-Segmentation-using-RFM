@@ -2,7 +2,7 @@
 
 RFM analysis is a technique used to categorize customers according to their purchasing behavior.
 
-How this calculate?
+# **How this calculate?**
 
 Recency: This is the date when the customer made the last purchase. It is calculated by subtracting the customer's last shopping date from the analysis date.
 
@@ -10,16 +10,16 @@ Frequency: This is the total number of purchases of the customer. In a different
 
 Monetary: It is the total monetary value spent by the customer.
 
-The Business Problem
+# **The Business Problem**
 
 An e-commerce company wants to segment its customers and determine marketing strategies according to these segments.
 For example, it is desirable to organize different campaigns to retain customers who are very profitable for the company, and different campaigns for new customers.
 
-Data Set
+# **Data Set**
 
 The Online Retail II data set includes the sales of an online retail store based in the UK between dec1/12/2009 and 09/12/2011. The product catalog of this company includes souvenirs. The vast majority of the company's customers are corporate customers.
 
-Variables
+# **Variables**
 
 InvoiceNo: Invoice number. A unique number for each transaction. If it starts with C which means cancelled operations.
 
